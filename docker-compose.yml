@@ -6,7 +6,7 @@ services:
       - elasticsearch-data:/usr/share/elasticsearch/data
       - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
     environment:
-      - discovery.type=single-node
+      - ELASTICSEARCH_HOSTS=http://localhost:9200
     ports:
       - 9200:9200
     expose:
@@ -20,8 +20,6 @@ services:
       - 5601:5601
     networks:
       - elastic
-    depends_on:
-      - elasticsearch
 
 networks:
   elastic:

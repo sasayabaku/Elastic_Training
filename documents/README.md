@@ -1,7 +1,7 @@
 # Step 1 : 環境構築
 
 ```bash
-$ docker compose up
+docker compose up
 ```
 ElasticSearchとKibanaが起動するようになります。
 
@@ -10,7 +10,7 @@ ElasticSearchとKibanaが起動するようになります。
 `book` documentに、以下のデータをindexする。
 
 ```bash
-$ curl -X POST -H "Content-Type: application/json" -d \
+curl -X POST -H "Content-Type: application/json" -d \
     '{
         "id": "001",
         "title": "生活",
@@ -42,7 +42,7 @@ $ curl -X POST -H "Content-Type: application/json" -d \
 `成功時レスポンス`の _id を使って、データ取得
 
 ```bash
-$ curl http://localhost:9200/aozora/_doc/gmyb4HwBtw8oAslplE_0
+curl http://localhost:9200/aozora/_doc/gmyb4HwBtw8oAslplE_0
 ```
 
 **成功時データが返ってきます**
@@ -63,7 +63,7 @@ $ curl http://localhost:9200/aozora/_doc/gmyb4HwBtw8oAslplE_0
 ## 同様に検索クエリでデータを取得
 
 ```bash
-$ curl -H "Content-Type: application/json" http://localhost:9200/aozora/_search -d \
+curl -H "Content-Type: application/json" http://localhost:9200/aozora/_search -d \
     '{
         "query": {
             "match": {
@@ -79,7 +79,7 @@ $ curl -H "Content-Type: application/json" http://localhost:9200/aozora/_search 
 # データ削除
 
 ```bash
-$ curl -X DELETE http://localhost:9200/aozora/_doc/gmyb4HwBtw8oAslplE_0
+curl -X DELETE http://localhost:9200/aozora/_doc/gmyb4HwBtw8oAslplE_0
 ```
 
 
